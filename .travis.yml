@@ -8,6 +8,9 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key:
-  app:
+  api_key: 78643032a0255c790feba26b1b4217c7
+  app: viewing-party-and-chill
   run: rails db:migrate
+on:
+  repo: khoifishpond/viewing_party
+  branch: main
