@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/login', to: 'users#login_form'
   resources :users, only: [:new, :create]
+  resources :dashboard, only: [:index]
 end

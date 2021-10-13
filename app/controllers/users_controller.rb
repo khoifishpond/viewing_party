@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def login_form
 
   end
@@ -12,11 +13,11 @@ class UsersController < ApplicationController
     user[:username] = user[:username].downcase
     new_user = User.create(user)
     flash[:success] = "Welcome, #{new_user.username}!"
-    redirect_to root_path
+    redirect_to dashboard_index_path
   end
 
   private
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :email)
   end
 end
