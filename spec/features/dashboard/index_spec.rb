@@ -1,12 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Registration Page' do
-  it 'creates a new user' do
-    visit root_path
-
-    click_on "Register"
-
-    expect(current_path).to eq(new_user_path)
+RSpec.describe 'Dashboard Index Page' do
+  it 'displays the current user username welcome message' do
+    visit new_user_path
 
     username = "funbucket13"
     password = "test"
@@ -17,8 +13,8 @@ RSpec.describe 'Registration Page' do
     fill_in :user_email, with: email
 
     click_on "Register"
-    
+
     expect(current_path).to eq(dashboard_index_path)
-    expect(page).to have_content("Welcome, #{username}!")
+    expect(page).to have_content("Hello, #{username}")
   end
 end
