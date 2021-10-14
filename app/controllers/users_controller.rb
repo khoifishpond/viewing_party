@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-
-  def login_form
-
-  end
+  # def login_form
+  # end
 
   def new
     @user = User.new
@@ -16,7 +14,20 @@ class UsersController < ApplicationController
     redirect_to dashboard_index_path
   end
 
+  def login
+    user = User.find_by(username: params[:username])
+    if user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to dashboard_index_path
+      flash[:success] = "Welcome, #{user.username}!"
+    else
+      flash[:error] = "Sorry, your credentials are bad."
+      render :login_form
+    end
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:username, :password, :email)
   end
