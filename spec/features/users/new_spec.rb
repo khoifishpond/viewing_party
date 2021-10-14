@@ -17,7 +17,7 @@ RSpec.describe 'Registration Page' do
     fill_in :user_email, with: email
 
     click_on "Register"
-    save_and_open_page
+    
     expect(current_path).to eq(dashboard_index_path)
     expect(page).to have_content("Welcome, #{username}!")
   end
