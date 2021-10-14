@@ -3,5 +3,7 @@
   <%= form.text_field :username, id: :user_username %>
   <%= form.label :password, 'Password:' %>
   <%= form.password_field :password, id: :user_password %>
+  <%= form.label :email, 'Email:' %>
+  <%= form.email_field :email, id: :user_email %>
   <%= form.submit 'Register' %>
 <% end %>
