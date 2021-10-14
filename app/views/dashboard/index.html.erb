@@ -2,12 +2,4 @@
 
 <section id='friends'>
   <h3>Friends</h3>
-  <%= form_with model: @friendships, method: :post, local: true do |form| %>
-    <%= form.text_field :search %>
-    <%= form.submit 'Add Friend' %>
-  <% end %>
-
-  <%= @friends.each do |friend| %>
-    <%= friend.username %>
-  <% end %>
 </section>
