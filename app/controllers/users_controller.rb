@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-
   def login_form
-
   end
 
   def new
@@ -16,7 +14,14 @@ class UsersController < ApplicationController
     redirect_to dashboard_index_path
   end
 
+  def login
+    user = User.find_by(username: params[:username])
+    flash[:success] = "Welcome, #{user.username}!"
+    redirect_to root_path
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:username, :password, :email)
   end
