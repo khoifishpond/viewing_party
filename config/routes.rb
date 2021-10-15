@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
   resources :users, only: [:new, :create, :login]
   resources :dashboard, only: [:index]
+  resources :discover, only: [:index]
+  resources :friendships, only: [:new, :create]
 end
