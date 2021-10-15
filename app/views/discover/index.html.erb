@@ -1,0 +1,6 @@
+<%= button_to 'Top 40 movies', movies_path %>
+
+<%= form_with url: movie_path, method: :get, local: true do |f| %>
+  <%= f.text_field :search %>
+  <%= f.submit 'Find Movies' %>
+<% end %>
