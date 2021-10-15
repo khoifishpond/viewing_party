@@ -20,6 +20,7 @@ gem 'bcrypt'
 group :development, :test do
   gem 'pry'
   gem 'travis'
+  gem 'figaro'
 end
 
 group :development do
