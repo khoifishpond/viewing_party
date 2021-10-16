@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :discover, only: [:index]
   resources :friendships, only: [:new, :create]
+  resources :movies, only: [:index, :show]
 end
