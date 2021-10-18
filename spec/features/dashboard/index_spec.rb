@@ -35,7 +35,7 @@ describe 'dashboard page' do
     fill_in :search, with: @user3.email
 
     click_on 'Add Friend'
-    save_and_open_page
+    
     expect(page).to have_content(@user3.username)
   end
 end
