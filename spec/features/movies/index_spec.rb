@@ -4,8 +4,9 @@ describe 'movies index page' do
   it 'displays top 40 movies title and vote average' do
     VCR.use_cassette('top_40_movies_and_vote_average') do
       visit movies_path
+      click_on 'Top 40 Movies'
+      
       json_response = File.read('spec/fixtures/movies.json')
-
       stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV["movie_db_api"]}&language=en-US&page=1").
         # with(
         #   headers: {
