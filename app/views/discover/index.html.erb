@@ -1,6 +1,6 @@
 <h2>Discover Movies</h2>
 
-<%= button_to 'Top 40 Movies', movies_path, method: :get, local: true %>
+<%= button_to 'Top 40 Movies', movies_path, method: :get, params: {popular: true},local: true %>
 <br>
 OR
 <br><br>
