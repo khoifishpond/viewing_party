@@ -1,6 +1,11 @@
-<%= button_to 'Top 40 movies', movies_path %>
+<h2>Discover Movies</h2>
 
-<%= form_with url: movie_path, method: :get, local: true do |f| %>
+<%= button_to 'Top 40 Movies', movies_path, method: :get, local: true %>
+<br>
+OR
+<br><br>
+
+<%= form_with url: movies_path, method: :get, local: true do |f| %>
   <%= f.text_field :search %>
   <%= f.submit 'Find Movies' %>
 <% end %>

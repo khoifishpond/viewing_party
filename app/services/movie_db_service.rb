@@ -7,7 +7,7 @@ class MovieDbService < ApiService
   end
 
   def self.search_movie(page, title)
-    get_data("#{BASE_URL}/3/search/movie?language=en-US&page=#{page}&query=#{title}&api_key=#{ENV["movie_db_api"]}")
+    get_data("#{BASE_URL}/3/search/movie?language=en-US&page=#{page}&query=#{title}&api_key=#{ENV["movie_db_api"]}")[:results]
   end
 
   # def top_40
