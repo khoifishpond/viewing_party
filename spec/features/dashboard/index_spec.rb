@@ -25,7 +25,7 @@ describe 'dashboard page' do
     expect(page).to have_content("Welcome, #{@user1.username}!")
   end
 
-  xit 'has link to Discover Movies Page' do
+  it 'has link to Discover Movies Page' do
     click_on 'Discover Movies'
 
     expect(current_path).to eq(discover_index_path)
