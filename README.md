@@ -21,8 +21,6 @@ Viewing party is an application in which users can explore movie options and cre
 
 Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
 
-# Viewing Party
-
 ## Background and Description
 
 "For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together. The application will require basic authentication."
