@@ -6,7 +6,7 @@ class Movie
               :runtime,
               :overview
 
-  def initialize(results, reviews)
+  def initialize(results)
     @title = results[:title]
     @id = results[:id]
     @vote_average = results[:vote_average]
