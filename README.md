@@ -2,7 +2,7 @@
 
 [Viewing Party](https://github.com/khoifishpond/viewing_party) is a 10-day, 2 person project, during Mod 3 of 4 for Turing School's Back End Engineering Program.
 
-Our challenge was to build a functioning web app consisting of multiple relational databases and pull from multiple APIs to create friendships that can make viewing parties associated with a movie.
+Our challenge was to build a functioning web app consisting of multiple relational databases and pull from multiple API endpoints to create friendships that can make viewing parties associated with a movie.
 
 Learning goals and areas of focus consisted of:
 
@@ -12,7 +12,15 @@ Learning goals and areas of focus consisted of:
 - Implement a self-referential relationship in ActiveRecord 
 - Apply RuboCop’s style guide for code quality 
 - Utilize Continuous Integration using Travis CI 
- -Deploy to Heroku 
+- Deploy to Heroku 
+
+## Requirements
+- Use RuboCop in project to enforce style guide
+- Deploy to Heroku
+- Use TravisCI for Continuous Integration
+- Consume The Movie DB API
+- Implement Basic Auth
+- Choose one exploration option to complete
 
 [Technical Requirements](https://github.com/turingschool-examples/viewing_party/projects/1)
 
@@ -28,7 +36,6 @@ Learning goals and areas of focus consisted of:
 - Git/GitHub
 - HTML
 - CSS
-- Bootstrap
 - RSpec
 - Pry
 - Atom
@@ -55,7 +62,7 @@ This is the base repo for the [viewing party project](https://backend.turing.io/
 
 ### About this Project
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+Viewing party is an application in which users can explore movie options and create a viewing party event for the user and their friend's.
 
 ## Local Setup
 
@@ -74,23 +81,6 @@ Example wireframes to follow are found [here](https://backend.turing.io/module3/
 ## Background and Description
 
 "For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together. The application will require basic authentication."
-
-## Learning Goals
-- Consume JSON APIs that require authentication 
-- Build an application that requires basic authentication 
-- Organize and refactor code to be more maintainable 
-- Implement a self-referential relationship in ActiveRecord 
-- Apply RuboCop’s style guide for code quality 
-- Utilize Continuous Integration using Travis CI 
-- Deploy to Heroku 
-
-## Requirements
-- Use RuboCop in project to enforce style guide
-- Deploy to Heroku
-- Use TravisCI for Continuous Integration
-- Consume The Movie DB API
-- Implement Basic Auth
-- Choose one exploration option to complete
 
 ## Setup
 
@@ -129,8 +119,8 @@ This project requires Ruby 2.7.2.
   ```ruby
      class MovieDbService < ApiService
      
-        def self.top_movies_1_data
-          get_data("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API']}&language=en-US&page=1")
+        def self.top_movies_by_page(page)
+          get_data("#{BASE_URL}/3/movie/top_rated?api_key=#{ENV["movie_db_api"]}&language=en-US&page=#{page}")[:results]
         end
      
      end 
@@ -169,4 +159,4 @@ This project requires Ruby 2.7.2.
 
     ```
 
-* [Heroku Deployment](https://morning-caverns-25715.herokuapp.com/), for production
+* [Heroku Deployment](https://viewing-party-and-chill.herokuapp.com/), for production
