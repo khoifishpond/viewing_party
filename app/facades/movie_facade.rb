@@ -12,4 +12,18 @@ class MovieFacade
       Movie.new(result)
     end
   end
+
+  def self.movie_by_id(id)
+    movie = MovieDbService.search_by_id(id)
+    reviews = MovieDbService.reviews(id)[:results]
+    Movie.new(movie, reviews)
+  end
+
+  def self.reviews(id)
+    reviews = MovieDbService.reviews(id)
+    reviews[:results].map do |review|
+      # require "pry"; binding.pry
+      Review.new(review)
+    end
+  end
 end
