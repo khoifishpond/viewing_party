@@ -10,6 +10,14 @@ class MovieDbService < ApiService
     get_data("#{BASE_URL}/3/search/movie?language=en-US&page=#{page}&query=#{title}&api_key=#{ENV["movie_db_api"]}")[:results]
   end
 
+  def self.search_by_id(id)
+    get_data("#{BASE_URL}/3/movie/#{id}?api_key=#{ENV["movie_db_api"]}&language=en-US")
+  end
+
+  def self.reviews(id)
+    get_data("#{BASE_URL}/3/movie/#{id}/reviews?api_key=#{ENV["movie_db_api"]}&language=en-US")
+  end
+
   # def top_40
   #   get_data("#{BASE_URL}/3/movie/top_rated?api_key=#{ENV["movie_db_api"]}&language=en-US&page=#{page}")
   # end
