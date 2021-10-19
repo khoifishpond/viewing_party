@@ -1,3 +1,54 @@
+### <ins>Overview</ins>
+
+[Viewing Party](https://github.com/khoifishpond/viewing_party) is a 10-day, 2 person project, during Mod 3 of 4 for Turing School's Back End Engineering Program.
+
+Our challenge was to build a functioning web app consisting of multiple relational databases and pull from multiple APIs to create friendships that can make viewing parties associated with a movie.
+
+Learning goals and areas of focus consisted of:
+
+- Consume JSON APIs that require authentication 
+- Build an application that requires basic authentication 
+- Organize and refactor code to be more maintainable 
+- Implement a self-referential relationship in ActiveRecord 
+- Apply RuboCop’s style guide for code quality 
+- Utilize Continuous Integration using Travis CI 
+ -Deploy to Heroku 
+
+[Technical Requirements](https://github.com/turingschool-examples/viewing_party/projects/1)
+
+### <ins>Tools Used</ins>
+- Ruby 2.7.2
+- Rails 5.2.6
+- PostgresQL
+- Postico
+- Capybara
+- Launchy
+- Orderly
+- SimpleCov
+- Git/GitHub
+- HTML
+- CSS
+- Bootstrap
+- RSpec
+- Pry
+- Atom
+- VS Code
+- Heroku
+- Faraday
+- Travis
+- RuboCop
+- Figaro
+
+### <ins>Contributors</ins>
+
+👤  **Khoi Nguyen**
+- Github: [Khoi Nguyen](https://github.com/khoifishpond)
+- LinkedIn: [Khoi Nguyen](https://www.linkedin.com/in/khoifishpond)
+
+👤  **Sami Peterson**
+- Github: [Sami Peterson](https://github.com/sami-p)
+- LinkedIn: [Sami Peterson](https://www.linkedin.com/in/samantha-peterson-15b18220b/)
+
 # Viewing Party
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
@@ -11,7 +62,6 @@ Viewing party is an application in which users can explore movie options and cre
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
 3. Setup the database: `rails db:create`
-
 
 ## Versions
 
