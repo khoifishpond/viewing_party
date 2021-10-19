@@ -1,8 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    # check for blanks and 'asdfasdfasdf'
-    # require 'pry'; binding.pry
-
     @movies = if params[:popular]
       MovieFacade.popular
     elsif params[:search].blank? || MovieFacade.search(params[:search]).empty?
@@ -14,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    
+    @movie = MovieFacade.movie_by_id(params[:id])
+    @reviews = MovieFacade.reviews(@movie.id)
   end
 end

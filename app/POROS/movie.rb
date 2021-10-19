@@ -3,7 +3,8 @@ class Movie
               :id,
               :vote_average,
               :genres,
-              :runtime
+              :runtime,
+              :overview
 
   def initialize(results)
     @title = results[:title]
@@ -11,5 +12,6 @@ class Movie
     @vote_average = results[:vote_average]
     @genres = results[:genres]
     @runtime = results[:runtime]
+    @overview = results[:overview]
   end
 end
