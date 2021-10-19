@@ -1,0 +1,18 @@
+<h1><%= @movie.title %></h1>
+Vote Average: <%= @movie.vote_average %><br>
+Runtime: <%= @movie.runtime %><br>
+Genres:
+<% @movie.genres.each do |genre| %>
+  <li><%= genre[:name] %></li>
+<% end %>
+
+<h2>Reviews</h2>
+Total Number of Reviews: <%= @reviews.count %>
+<br>
+<br>
+<% @reviews.each do |review| %>
+  Author: <%= review.author %><br>
+  Review: <%= review.content %>
+  <br>
+  <br>
+<% end %>
