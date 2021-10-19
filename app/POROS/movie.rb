@@ -13,5 +13,6 @@ class Movie
     @genres = results[:genres]
     @runtime = results[:runtime]
     @overview = results[:overview]
+    @cast = results[:ca]
   end
 end

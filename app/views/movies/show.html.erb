@@ -6,6 +6,11 @@ Genres:
   <li><%= genre[:name] %></li>
 <% end %>
 
+<h2>Cast</h2>
+<% @cast.each do |c| %>
+  <%= c.name %> as <%= c.character %><br>
+<% end %>
+
 <h2>Reviews</h2>
 Total Number of Reviews: <%= @reviews.count %>
 <br>

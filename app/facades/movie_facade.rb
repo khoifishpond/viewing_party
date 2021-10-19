@@ -24,4 +24,11 @@ class MovieFacade
       Review.new(review)
     end
   end
+
+  def self.cast(id)
+    cast = MovieDbService.cast(id)
+    cast.map do |c|
+      Cast.new(c)
+    end
+  end
 end
