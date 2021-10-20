@@ -7,6 +7,10 @@ class PartiesController < ApplicationController
   def create
     party = Party.create!(party_params)
     if party.save
+      params[:users].each do |user|
+        PartyGuest.create(user_id: user, party_id: party.id)
+      end
+      PartyGuest.create(user: current_user, party: party)
       flash[:success] = "Viewing Party created sucessfully!"
       redirect_to dashboard_index_path
     else
