@@ -1,4 +1,6 @@
 <h2>Discover</h2>
+<%= button_to 'Log Out', logout_path, method: :get, local: true %>
+<br>
 <%= button_to 'Discover Movies', discover_index_path, method: :get, local: true %>
 
 <section id='friends'>
@@ -21,5 +23,26 @@
 
 <section id='viewing-party'>
   <h2>Viewing Party</h2>
-  
+  <% if current_user && current_user.parties.count > 0 %>
+    <% current_user.parties.each do |party| %>
+      Movie: <%= party.movie_title %><br>
+      Date: <%= party.date %><br>
+      Start Time: <%= party.start_time %><br>
+      Status: <% if current_user.id == party.host_id %>
+        Hosting
+      <% else %>
+        Invited
+      <% end %><br>
+      <br>
+      Guest List: <% party.party_guests.each do |guest| %>
+                    <% if guest.id == current_user.id %>
+                      <b><%= current_user.username %></b> (You)
+                    <% else %>
+                      <%= guest.username %>
+                    <% end %>
+                <% end %>
+    <% end %>
+  <% else %>
+     You are currently invited to 0 parties. Yikes.
+  <% end %>
 </section>
