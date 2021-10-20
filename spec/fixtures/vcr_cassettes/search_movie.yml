@@ -42,13 +42,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 e4ca364cc5959e3bf697ae231c5b56b0.cloudfront.net (CloudFront)
+      - 1.1 045f1e1f031241f3808c557a2b5d6b0a.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - zLPnyfqVpUBB7h4VFZ1cQkZl-ExDGhyKIUo6eXfshbjXLIN3hgqMCg==
+      - oSWdk7E5hM-goiNRxkuYnleYPUW98OY8ZNiM3ZCZCNJcT-Nvcfjxxg==
       Age:
-      - '129'
+      - '132'
     body:
       encoding: ASCII-8BIT
       string: '{"page":1,"results":[{"adult":false,"backdrop_path":"/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg","genre_ids":[53,80],"id":680,"original_language":"en","original_title":"Pulp
@@ -89,58 +89,5 @@ http_interactions:
         is given to the original cover art that defined pulp, featuring beautiful
         women, space creatures and blazing weapons.","popularity":0.6,"poster_path":null,"release_date":"2010-01-01","title":"UFOTV
         Presents: Pulp Fiction: The Golden Age of Storytelling","video":false,"vote_average":4,"vote_count":1}],"total_pages":1,"total_results":6}'
-  recorded_at: Wed, 20 Oct 2021 23:39:51 GMT
-- request:
-    method: get
-    uri: https://api.themoviedb.org/3/search/movie?api_key=78643032a0255c790feba26b1b4217c7&language=en-US&page=2&query=Pulp%20Fiction
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.8.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 20 Oct 2021 23:37:42 GMT
-      Server:
-      - openresty
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, HEAD, POST, PUT, DELETE, OPTIONS
-      Access-Control-Expose-Headers:
-      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
-        Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=600
-      Vary:
-      - Accept-Encoding
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 d29afc70fc2fdadee440493854714224.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - DEN50-C2
-      X-Amz-Cf-Id:
-      - Oj2O_VWI0f4AKO97p1-EjKl-ldzizkzDREgDad7iw6piVJ0f6xsQ1w==
-      Age:
-      - '130'
-    body:
-      encoding: ASCII-8BIT
-      string: '{"page":2,"results":[],"total_pages":1,"total_results":6}'
-  recorded_at: Wed, 20 Oct 2021 23:39:52 GMT
+  recorded_at: Wed, 20 Oct 2021 23:39:54 GMT
 recorded_with: VCR 6.0.0
