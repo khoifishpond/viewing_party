@@ -16,7 +16,7 @@ RSpec.describe 'Movie Show Page' do
   it 'displays movie summary' do
     VCR.use_cassette('movie_summary') do
       visit movie_path(278)
-      
+
       expect(page).to have_content("Framed in the 1940s for the double murder of his wife and her lover,")
     end
   end
@@ -24,7 +24,7 @@ RSpec.describe 'Movie Show Page' do
   it 'displays first 10 cast members' do
     VCR.use_cassette('cast_members') do
       visit movie_path(278)
-      
+
       expect(page).to have_content("Tim Robbins")
       expect(page).to have_content("Andy Dufresne")
       expect(page).to have_content("Larry Brandenburg")
@@ -34,8 +34,10 @@ RSpec.describe 'Movie Show Page' do
 
   it 'displays review authors' do
     VCR.use_cassette('movie_details') do
+      reviews = MovieFacade.reviews(278)
       visit movie_path(278)
 
+      expect(page).to have_content("Total Number of Reviews: #{reviews.count}")
       expect(page).to have_content("elshaarawy")
       expect(page).to have_content("Make way for the best film ever made people. **Make way.**")
     end
