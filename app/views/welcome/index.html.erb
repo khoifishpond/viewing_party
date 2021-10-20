@@ -1,12 +1,12 @@
 <h1>Welcome to Viewing Party!</h1>
 <h3>Watch movies and chill with your friends.</h3>
 
-<%= form_with url: sessions_path, method: :get, local: true do |f| %>
+<%= form_with url: login_path, method: :post, local: true do |f| %>
   <%= f.label :username, 'Username:' %>
   <%= f.text_field :username, id: :user_username %>
 
   <%= f.label :password, 'Password:' %>
-  <%= f.text_field :password, id: :user_password %>
+  <%= f.password_field :password, id: :user_password %>
 
   <%= f.submit 'Log In' %>
 <% end %>

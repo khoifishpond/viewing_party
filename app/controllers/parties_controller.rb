@@ -5,20 +5,23 @@ class PartiesController < ApplicationController
   end
 
   def create
-    party = Party.create!(party_params)
-    if party.save
-      flash[:success] = "Viewing Party created sucessfully!"
+    # require 'pry'; binding.pry
+    party = Party.create(party_params)
+    if party.save && !params[:users].nil?
+      params[:users].each do |user|
+        PartyGuest.create(user_id: user, party_id: party.id)
+      end
+      PartyGuest.create(user: current_user, party: party)
       redirect_to dashboard_index_path
+      flash[:success] = "Viewing Party created successfully!"
     else
-      @movie = MovieFacade.movie_by_id(params[:movie_id])
-      render new_party_path
-      flash[:notice] = "Please try again!"
+      redirect_to new_party_path(movie_id: params[:movie_id])
     end
   end
 
   private
 
   def party_params
-    params.permit(:host_id, :movie_title, :date, :start_time, :duration)
+    params.permit(:host_id, :movie_title, :movie_id, :date, :start_time, :duration)
   end
 end

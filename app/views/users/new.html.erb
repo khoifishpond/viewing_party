@@ -1,3 +1,5 @@
+<h1>Registration</h1>
+
 <%= form_with model: @user, local: true do |form| %>
   <%= form.label :email, 'Email:' %>
   <%= form.email_field :email, id: :user_email %>

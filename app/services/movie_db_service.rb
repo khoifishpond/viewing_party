@@ -1,5 +1,4 @@
 class MovieDbService < ApiService
-
   BASE_URL = 'https://api.themoviedb.org'
 
   def self.top_movies_by_page(page)
