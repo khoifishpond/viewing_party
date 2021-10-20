@@ -8,7 +8,7 @@ describe 'dashboard page' do
 
     @friendship = Friendship.create!(user_id: @user1.id, friend_id: @user2.id)
 
-    @party = Party.create!(host_id: @user1.id, movie_title: 'Man IDK', movie_runtime: 90, start_time: '10/15/2021 9:00:00 PM', duration: 90)
+    @party = Party.create!(host_id: @user1.id, movie_title: 'Man IDK', start_time: '10/15/2021 9:00:00 PM', duration: 90)
 
     @invite = PartyGuest.create!(user_id: @user2.id, party_id: @party.id)
 
