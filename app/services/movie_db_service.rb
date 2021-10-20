@@ -21,12 +21,4 @@ class MovieDbService < ApiService
   def self.cast(id)
     get_data("#{BASE_URL}/3/movie/#{id}/credits?api_key=#{ENV["movie_db_api"]}&language=en-US")[:cast][0..9]
   end
-
-  # def top_40
-  #   get_data("#{BASE_URL}/3/movie/top_rated?api_key=#{ENV["movie_db_api"]}&language=en-US&page=#{page}")
-  # end
-
-  # def popular_movies
-  #   get_data("#{BASE_URL}/3/movie/popular?api_key=#{ENV['movie_db_api']}&language=en-US&page=1")
-  # end
 end
