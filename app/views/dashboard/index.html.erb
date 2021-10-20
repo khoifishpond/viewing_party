@@ -1,6 +1,6 @@
-<h2>Discover</h2>
 <%= button_to 'Log Out', logout_path, method: :get, local: true %>
-<br>
+
+<h2>Discover</h2>
 <%= button_to 'Discover Movies', discover_index_path, method: :get, local: true %>
 
 <section id='friends'>
@@ -17,7 +17,7 @@
       <br>
     <% end %>
   <% else %>
-    <p> Oh no! You currently have no friends. </p>
+    Oh no! You currently have no friends.
   <% end %>
 </section>
 
@@ -25,22 +25,27 @@
   <h2>Viewing Party</h2>
   <% if current_user && current_user.parties.count > 0 %>
     <% current_user.parties.each do |party| %>
-      Movie: <%= party.movie_title %><br>
+      Movie: <%= link_to party.movie_title, movie_path(party.movie_id) %><br>
       Date: <%= party.date %><br>
       Start Time: <%= party.start_time %><br>
       Status: <% if current_user.id == party.host_id %>
         Hosting
       <% else %>
-        Invited
+        Invited<br>
+        Hosted by: <%= party.find_host(party.host_id).username %>
       <% end %><br>
-      <br>
-      Guest List: <% party.party_guests.each do |guest| %>
-                    <% if guest.id == current_user.id %>
-                      <b><%= current_user.username %></b> (You)
-                    <% else %>
-                      <%= guest.username %>
-                    <% end %>
-                <% end %>
+      Guest List: <ul><% if !party.party_guests.nil? %>
+                          <% party.party_guests.each do |guest| %>
+                          <% if guest.user_id == current_user.id %>
+                            <b><li><%= current_user.username %></b> (You)</li>
+                          <% else %>
+                            <% user = User.find_by(id: guest.user_id) %>
+                            <li><%= user.username %></li>
+                          <% end %>
+                        <% end %>
+                        <% else %>
+                          Party of one!
+                      <% end %></ul>
     <% end %>
   <% else %>
      You are currently invited to 0 parties. Yikes.
