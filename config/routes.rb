@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :friendships, only: [:new, :create]
   resources :movies, only: [:index, :show]
   resources :sessions, only: [:create, :destroy]
+  resources :parties, only: [:new, :create]
 end

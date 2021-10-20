@@ -1,10 +1,13 @@
 <h1><%= @movie.title %></h1>
+<%= button_to 'Create Viewing Party', new_party_path, method: :get, params: {movie_id: @movie.id}, local: true %><br>
 Vote Average: <%= @movie.vote_average %><br>
 Runtime: <%= @movie.runtime %><br>
 Genres:
+<ul>
 <% @movie.genres.each do |genre| %>
   <li><%= genre[:name] %></li>
 <% end %>
+</ul>
 
 <h2>Summary</h2>
 <%= @movie.overview %>
