@@ -7,7 +7,7 @@ RSpec.describe 'Movie Show Page' do
 
       expect(page).to have_content("Shawshank Redemption")
       expect(page).to have_content("8.7")
-      expect(page).to have_content("142")
+      expect(page).to have_content("2 hour(s) 22 minute(s)")
       expect(page).to have_content("Drama")
       expect(page).to have_content("Crime")
     end
@@ -34,10 +34,9 @@ RSpec.describe 'Movie Show Page' do
 
   it 'displays review authors' do
     VCR.use_cassette('movie_details') do
-      reviews = MovieFacade.reviews(278)
       visit movie_path(278)
 
-      expect(page).to have_content("Total Number of Reviews: #{reviews.count}")
+      expect(page).to have_content("Total Number of Reviews: 7")
       expect(page).to have_content("elshaarawy")
       expect(page).to have_content("Make way for the best film ever made people. **Make way.**")
     end
