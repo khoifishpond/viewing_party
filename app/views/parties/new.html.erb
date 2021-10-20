@@ -2,14 +2,20 @@
 
 <%= form_with url: parties_path, local: true do |f| %>
   <%= f.hidden_field :host_id, value: current_user.id %>
+
   <%= f.label :movie_title, 'Movie Title' %>
   <%= f.text_field :movie_title, value: @movie.title, readonly: true %><br>
+
   <%= f.label :duration, 'Duration' %>
   <%= f.number_field :duration, value: @movie.runtime, min: @movie.runtime %><br>
+
   <%= f.label :date, 'Date' %>
   <%= f.date_field :date %><br>
+
   <%= f.label :start_time, 'Time' %>
   <%= f.time_field :start_time %><br>
-  <%# <%= f.collection_check_boxes(:friend_ids, current_user.friends.all, :id, :name) %>
+  <% if !current_user.friends.empty? %>
+    <%= f.collection_check_boxes(:users, current_user.friends, :id, :username) %>
+  <% end %>
   <%= f.submit "Create Viewing Party" %>
 <% end %>
