@@ -16,7 +16,7 @@ RSpec.describe 'Movie Show Page' do
   it 'displays first 10 cast members' do
     VCR.use_cassette('cast_members') do
       visit movie_path(278)
-      save_and_open_page
+      
       expect(page).to have_content("Tim Robbins")
       expect(page).to have_content("Andy Dufresne")
       expect(page).to have_content("Larry Brandenburg")
